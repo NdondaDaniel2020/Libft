@@ -3,17 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nmatondo <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: nmatondo <nmatondo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/20 13:12:46 by nmatondo          #+#    #+#              #
-#    Updated: 2024/05/20 13:12:48 by nmatondo         ###   ########.fr        #
+#    Updated: 2024/07/03 13:22:54 by nmatondo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
 NAME = ./libft.a
-H = libft.h
 FILES = ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -57,8 +56,15 @@ BFILES = ft_lstnew.c \
 	 	 ft_lstdelone.c \
 	 	 ft_lstclear.c \
 	 	 ft_lstiter.c \
-	 	 ft_lstmap.c
-
+	 	 ft_lstmap.c \
+		 ft_nblen.c \
+		 ft_printf.c \
+		 ft_putchar.c \
+		 ft_put_end_mem.c \
+		 ft_putnbr_base.c \
+		 ft_putstr.c \
+		 ft_put_unsigned.c
+	
 OBJS = $(FILES:.c=.o)
 BOBJS = $(BFILES:.c=.o)
 
@@ -66,11 +72,16 @@ FLAGS = -Wall -Wextra -Werror
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS)
-	gcc $(FLAGS) -c $(FILES) $(H)
+$(OBJS): %.o: %.c
+	gcc $(FLAGS) -c $< -o $@
+
+$(BOBJS): %.o: %.c
+	gcc $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
-bonus:	$(OBJS) $(BOBJS)
+bonus: $(OBJS) $(BOBJS)
 	ar rc $(NAME) $(OBJS) $(BOBJS)
 
 clean:
