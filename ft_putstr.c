@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmatondo <nmatondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 10:32:01 by nmatondo          #+#    #+#             */
-/*   Updated: 2024/05/24 12:55:40 by nmatondo         ###   ########.fr       */
+/*   Created: 2024/05/20 11:39:59 by nmatondo          #+#    #+#             */
+/*   Updated: 2024/07/03 13:17:35 by nmatondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_putstr(char *s, int count)
 {
-	if ((c >= 65 && c <= 90))
-		return (1);
-	if (c >= 97 && c <= 122)
-		return (2);
-	return (0);
+	if (s == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		count += 6;
+	}
+	else
+	{
+		count += ft_strlen(s);
+		while (*s)
+		{
+			ft_putchar_fd(*s, 1);
+			++s;
+		}
+	}
+	return (count);
 }
