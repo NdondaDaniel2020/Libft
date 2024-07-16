@@ -6,7 +6,7 @@
 /*   By: nmatondo <nmatondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:57:43 by nmatondo          #+#    #+#             */
-/*   Updated: 2024/07/03 13:20:15 by nmatondo         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:37:34 by nmatondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,19 @@ int	ft_printf(const char *format, ...);
 int	ft_nblen(long long nb, int base);
 int	ft_putchar(char c, int count);
 int	ft_putstr(char *s, int count);
+
+/*gnl*/
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+char	*ft_read_str(int fd, char *str);
+char	*ft_find_char(char *str, char c);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_get_new_str(char *str);
+char	*ft_get_line(char *str);
+char	*get_next_line(int fd);
+
+size_t	ft_strlen_gnl(char *str);
 
 #endif
