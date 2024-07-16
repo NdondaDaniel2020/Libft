@@ -85,13 +85,13 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 /*printf*/
-int	ft_putnbr_base(long int nb, int base, int tan, int count);
-int	ft_put_end_mem(unsigned long long nb, int count);
-int	ft_put_unsigned(unsigned int nb, int count);
-int	ft_printf(const char *format, ...);
-int	ft_nblen(long long nb, int base);
-int	ft_putchar(char c, int count);
-int	ft_putstr(char *s, int count);
+int		ft_putnbr_base(long int nb, int base, int tan, int count);
+int		ft_put_end_mem(unsigned long long nb, int count);
+int		ft_put_unsigned(unsigned int nb, int count);
+int		ft_printf(const char *format, ...);
+int		ft_nblen(long long nb, int base);
+int		ft_putchar(char c, int count);
+int		ft_putstr(char *s, int count);
 
 /*gnl*/
 # ifndef BUFFER_SIZE
