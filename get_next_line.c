@@ -6,7 +6,7 @@
 /*   By: nmatondo <nmatondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 08:00:23 by nmatondo          #+#    #+#             */
-/*   Updated: 2024/07/16 10:36:25 by nmatondo         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:52:08 by nmatondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ char	*ft_read_str(int fd, char *str)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*str;
+	static char	*str[2147483646];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
-	str = ft_read_str(fd, str);
-	if (!str)
 		return (NULL);
-	line = ft_get_line(str);
-	str = ft_get_new_str(str);
+	str[fd] = ft_read_str(fd, str[fd]);
+	if (!str[fd] || !*str[fd])
+		return (NULL);
+	line = ft_get_line(str[fd]);
+	str[fd] = ft_get_new_str(str[fd]);
 	return (line);
 }
