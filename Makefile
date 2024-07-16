@@ -6,7 +6,7 @@
 #    By: nmatondo <nmatondo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/20 13:12:46 by nmatondo          #+#    #+#              #
-#    Updated: 2024/07/03 13:22:54 by nmatondo         ###   ########.fr        #
+#    Updated: 2024/07/16 10:32:21 by nmatondo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,9 @@ BFILES = ft_lstnew.c \
 		 ft_put_end_mem.c \
 		 ft_putnbr_base.c \
 		 ft_putstr.c \
-		 ft_put_unsigned.c
+		 ft_put_unsigned.c \
+		 get_next_line.c \
+		 get_next_line_utils.c
 	
 OBJS = $(FILES:.c=.o)
 BOBJS = $(BFILES:.c=.o)
@@ -73,22 +75,24 @@ FLAGS = -Wall -Wextra -Werror
 all:	$(NAME)
 
 $(OBJS): %.o: %.c
-	gcc $(FLAGS) -c $< -o $@
+	@gcc $(FLAGS) -c $< -o $@
 
 $(BOBJS): %.o: %.c
-	gcc $(FLAGS) -c $< -o $@
+	@gcc $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
+	@make clean
 
 bonus: $(OBJS) $(BOBJS)
-	ar rc $(NAME) $(OBJS) $(BOBJS)
+	@ar rc $(NAME) $(OBJS) $(BOBJS)
+	@make clean
 
 clean:
-	/bin/rm -f $(OBJS) $(BOBJS)
+	@/bin/rm -f $(OBJS) $(BOBJS)
 
 fclean:	clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re:	fclean all
 
