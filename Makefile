@@ -6,7 +6,7 @@
 #    By: nmatondo <nmatondo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/20 13:12:46 by nmatondo          #+#    #+#              #
-#    Updated: 2024/07/16 10:32:21 by nmatondo         ###   ########.fr        #
+#    Updated: 2024/07/18 13:12:50 by nmatondo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,9 @@ BFILES = ft_lstnew.c \
 		 ft_putstr.c \
 		 ft_put_unsigned.c \
 		 get_next_line.c \
-		 get_next_line_utils.c
+		 get_next_line_utils.c \
+		 ft_findchar.c \
+		 ft_initstr.c
 	
 OBJS = $(FILES:.c=.o)
 BOBJS = $(BFILES:.c=.o)
@@ -97,3 +99,5 @@ fclean:	clean
 re:	fclean all
 
 .PHONY: all clean fclean re
+
+

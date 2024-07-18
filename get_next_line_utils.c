@@ -6,7 +6,7 @@
 /*   By: nmatondo <nmatondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 08:00:13 by nmatondo          #+#    #+#             */
-/*   Updated: 2024/07/16 10:36:06 by nmatondo         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:47:24 by nmatondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlen_gnl(char *str)
 	return (i);
 }
 
-char	*ft_find_char(char *str, char c)
+char	*ft_find_char_in_point(char *str, char c)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ char	*ft_find_char(char *str, char c)
 	return (0);
 }
 
-char	*ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*join;
 	int		l1;
