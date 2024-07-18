@@ -6,7 +6,7 @@
 /*   By: nmatondo <nmatondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 08:00:23 by nmatondo          #+#    #+#             */
-/*   Updated: 2024/07/16 10:52:08 by nmatondo         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:45:10 by nmatondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_read_str(int fd, char *str)
 	if (!buffer)
 		return (NULL);
 	rd_bytes = 1;
-	while (!ft_find_char(str, '\n') && rd_bytes != 0)
+	while (!ft_find_char_in_point(str, '\n') && rd_bytes != 0)
 	{
 		rd_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (rd_bytes == -1)
@@ -30,7 +30,7 @@ char	*ft_read_str(int fd, char *str)
 			return (NULL);
 		}
 		buffer[rd_bytes] = '\0';
-		str = ft_strjoin_gnl(str, buffer);
+		str = ft_strjoin_free(str, buffer);
 	}
 	free(buffer);
 	return (str);
