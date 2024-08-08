@@ -39,7 +39,7 @@ char	*ft_read_str(int fd, char *str)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*str[2147483646];
+	static char	*str[214748364];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
